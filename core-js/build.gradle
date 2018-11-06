@@ -1,0 +1,11 @@
+apply plugin: 'kotlin-platform-js'
+apply plugin: 'maven'
+
+group 'com.chrynan'
+version rootProject.ext.libraryVersion
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-js"
+
+    expectedBy project(':core')
+}
