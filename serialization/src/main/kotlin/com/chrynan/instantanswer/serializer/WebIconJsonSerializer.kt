@@ -12,10 +12,12 @@ import kotlinx.serialization.json.JSON
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.JsonPrimitive
 
-@Serializer(forClass = WebIcon::class)
 object WebIconJsonSerializer : KSerializer<WebIcon>,
     SerializationStrategy<WebIcon>,
     DeserializationStrategy<WebIcon> {
+
+    override val descriptor: SerialDescriptor
+        get() = throw SerializationException("SerialDescriptor is not implemented for ${this::class}.")
 
     override fun serialize(output: Encoder, obj: WebIcon) {
         val jsonWriter =

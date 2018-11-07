@@ -9,10 +9,12 @@ import kotlinx.serialization.json.JSON
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.JsonPrimitive
 
-@Serializer(forClass = Meta.Maintainer::class)
 object MaintainerJsonSerializer : KSerializer<Meta.Maintainer>,
     SerializationStrategy<Meta.Maintainer>,
     DeserializationStrategy<Meta.Maintainer> {
+
+    override val descriptor: SerialDescriptor
+        get() = throw SerializationException("SerialDescriptor is not implemented for ${this::class}.")
 
     override fun serialize(output: Encoder, obj: Meta.Maintainer) {
         val jsonWriter =

@@ -7,10 +7,12 @@ import com.chrynan.instantanswer.fields.ResultFields
 import kotlinx.serialization.*
 import kotlinx.serialization.json.*
 
-@Serializer(forClass = Result::class)
 object ResultJsonSerializer : KSerializer<Result>,
     SerializationStrategy<Result>,
     DeserializationStrategy<Result> {
+
+    override val descriptor: SerialDescriptor
+        get() = throw SerializationException("SerialDescriptor is not implemented for ${this::class}.")
 
     override fun serialize(output: Encoder, obj: Result) {
         val jsonWriter =

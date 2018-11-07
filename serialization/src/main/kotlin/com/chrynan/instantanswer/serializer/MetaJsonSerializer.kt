@@ -7,10 +7,12 @@ import com.chrynan.instantanswer.fields.MetaFields
 import kotlinx.serialization.*
 import kotlinx.serialization.json.*
 
-@Serializer(forClass = Meta::class)
 object MetaJsonSerializer : KSerializer<Meta>,
     SerializationStrategy<Meta>,
     DeserializationStrategy<Meta> {
+
+    override val descriptor: SerialDescriptor
+        get() = throw SerializationException("SerialDescriptor is not implemented for ${this::class}.")
 
     override fun serialize(output: Encoder, obj: Meta) {
         val jsonWriter =
