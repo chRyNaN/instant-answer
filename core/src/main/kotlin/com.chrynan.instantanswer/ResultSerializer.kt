@@ -2,21 +2,21 @@ package com.chrynan.instantanswer
 
 import kotlinx.serialization.*
 
-@Serializer(forClass = Result::class)
-class ResultSerializer : KSerializer<Result>,
-    SerializationStrategy<Result>,
-    DeserializationStrategy<Result> {
+@Serializer(forClass = ResultJson::class)
+class ResultSerializer : KSerializer<ResultJson>,
+    SerializationStrategy<ResultJson>,
+    DeserializationStrategy<ResultJson> {
 
-    override fun deserialize(input: Decoder): Result = try {
-        input.decodeSerializableValue(Result.TopicResult.serializer())
+    override fun deserialize(input: Decoder): ResultJson = try {
+        input.decodeSerializableValue(ResultJson.TopicResultJson.serializer())
     } catch (e: Exception) {
-        input.decodeSerializableValue(Result.NestedResult.serializer())
+        input.decodeSerializableValue(ResultJson.NestedResultJson.serializer())
     }
 
-    override fun serialize(output: Encoder, obj: Result) {
+    override fun serialize(output: Encoder, obj: ResultJson) {
         when (obj) {
-            is Result.TopicResult -> output.encodeSerializableValue(Result.TopicResult.serializer(), obj)
-            is Result.NestedResult -> output.encodeSerializableValue(Result.NestedResult.serializer(), obj)
+            is ResultJson.TopicResultJson -> output.encodeSerializableValue(ResultJson.TopicResultJson.serializer(), obj)
+            is ResultJson.NestedResultJson -> output.encodeSerializableValue(ResultJson.NestedResultJson.serializer(), obj)
         }
     }
 }

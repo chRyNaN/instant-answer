@@ -2,23 +2,23 @@
 
 package com.chrynan.instantanswer
 
-val InstantAnswer.containsValidAnswer: Boolean
+val InstantAnswerJson.containsValidAnswer: Boolean
     get() = !answer.isNullOrBlank()
 
-val InstantAnswer.containsValidAnswerType: Boolean
+val InstantAnswerJson.containsValidAnswerType: Boolean
     get() = !answerType.isNullOrBlank()
 
-val InstantAnswer.containsValidDefinition: Boolean
+val InstantAnswerJson.containsValidDefinition: Boolean
     get() = !definition.isNullOrBlank()
 
-val InstantAnswer.containsValidDefinitionSource: Boolean
+val InstantAnswerJson.containsValidDefinitionSource: Boolean
     get() = !definitionSource.isNullOrBlank()
 
-val InstantAnswer.containsValidDefinitionUrl: Boolean
+val InstantAnswerJson.containsValidDefinitionUrl: Boolean
     get() = !definitionUrl.isNullOrBlank()
 
-val InstantAnswer.containsRelatedTopics: Boolean
+val InstantAnswerJson.containsRelatedTopics: Boolean
     get() = relatedTopics.isNotEmpty()
 
-val InstantAnswer.containsResults: Boolean
+val InstantAnswerJson.containsResults: Boolean
     get() = results.isNotEmpty()

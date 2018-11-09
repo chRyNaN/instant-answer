@@ -2,5 +2,5 @@
 
 package com.chrynan.instantanswer
 
-val Result.containsValidFields: Boolean
-    get() = (this is Result.TopicResult && !url.isNullOrBlank() && !text.isNullOrBlank()) || (this is Result.NestedResult && !name.isNullOrBlank() && topics.isNotEmpty())
+val ResultJson.containsValidFields: Boolean
+    get() = (this is ResultJson.TopicResultJson && !url.isNullOrBlank() && !text.isNullOrBlank()) || (this is ResultJson.NestedResultJson && !name.isNullOrBlank() && topics.isNotEmpty())
