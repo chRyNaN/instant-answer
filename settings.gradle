@@ -6,4 +6,3 @@ include ':moshi'
 include ':serialization'
 include ':serialization-js'
 include ':serialization-jvm'
-
