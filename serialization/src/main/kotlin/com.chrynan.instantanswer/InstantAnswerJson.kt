@@ -34,7 +34,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class InstantAnswerJson(
-    @SerialName(RESULTS) @Optional override val results: List<Result>,
+    @SerialName(RESULTS) @Optional override val results: List<Result> = emptyList(),
     @SerialName(ABSTRACT) @Optional override val abstract: String? = null,
     @SerialName(ABSTRACT_TEXT) @Optional override val abstractText: String? = null,
     @SerialName(DEFINITION_URL) @Optional override val definitionUrl: String? = null,

@@ -1,5 +1,4 @@
 apply plugin: 'kotlin-platform-js'
-apply plugin: 'kotlinx-serialization'
 apply plugin: 'maven'
 
 group 'com.chrynan'
@@ -7,8 +6,6 @@ version rootProject.ext.libraryVersion
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-js"
-    
-    implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime-js:0.9.0"
 
     expectedBy project(':core')
 }

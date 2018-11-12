@@ -2,3 +2,8 @@ rootProject.name = 'instantanswer'
 include ':core'
 include ':core-jvm'
 include ':core-js'
+include ':moshi'
+include ':serialization'
+include ':serialization-js'
+include ':serialization-jvm'
+
