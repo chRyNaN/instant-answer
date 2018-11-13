@@ -57,4 +57,56 @@ data class InstantAnswerJson(
     @SerialName(ABSTRACT_SOURCE) @Optional override val abstractSource: String? = null,
     @SerialName(ABSTRACT_IMAGE_URL) @Optional override val abstractImageUrl: String? = null,
     @SerialName(ABSTRACT_TOPIC) @Optional override val abstractTopic: String? = null
-) : InstantAnswer
+) : InstantAnswer {
+
+    override fun copyWith(
+        results: List<Result>,
+        abstract: String?,
+        abstractText: String?,
+        definitionUrl: String?,
+        imageIsLogo: Boolean?,
+        entity: String?,
+        definitionSource: String?,
+        heading: String?,
+        infoBox: String?,
+        image: String?,
+        abstractUrl: String?,
+        answerType: String?,
+        meta: Meta?,
+        relatedTopics: List<Result>,
+        type: String?,
+        redirectUrl: String?,
+        definition: String?,
+        imageWidth: Int?,
+        imageHeight: Int?,
+        answer: String?,
+        abstractSource: String?,
+        abstractImageUrl: String?,
+        abstractTopic: String?
+    ): InstantAnswer =
+        copy(
+            results = results,
+            abstract = abstract,
+            abstractText = abstractText,
+            definitionUrl = definitionUrl,
+            imageIsLogo = imageIsLogo,
+            entity = entity,
+            definitionSource = definitionSource,
+            heading = heading,
+            infoBox = infoBox,
+            image = image,
+            abstractUrl = abstractUrl,
+            answerType = answerType,
+            meta = meta,
+            relatedTopics = relatedTopics,
+            type = type,
+            redirectUrl = redirectUrl,
+            definition = definition,
+            imageHeight = imageHeight,
+            imageWidth = imageWidth,
+            answer = answer,
+            abstractSource = abstractSource,
+            abstractImageUrl = abstractImageUrl,
+            abstractTopic = abstractTopic
+        )
+}

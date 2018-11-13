@@ -24,12 +24,19 @@ sealed class ResultJson : Result {
         @field:Json(name = TEXT) override val text: String? = null,
         @field:Json(name = HTML_FORMATTED_TEXT) override val htmlFormattedText: String? = null
     ) : ResultJson(),
-        TopicResult
+        TopicResult {
+
+        override fun copyWith(webIcon: WebIcon?, url: String?, text: String?, htmlFormattedText: String?) =
+            copy(webIcon = webIcon, url = url, text = text, htmlFormattedText = htmlFormattedText)
+    }
 
     @JsonClass(generateAdapter = true)
     data class NestedResultJson(
         @field:Json(name = NAME) override val name: String? = null,
         @field:Json(name = TOPICS) override val topics: List<Result> = emptyList()
     ) : ResultJson(),
-        NestedResult
+        NestedResult {
+
+        override fun copyWith(name: String?, topics: List<Result>) = copy(name = name, topics = topics)
+    }
 }

@@ -26,12 +26,19 @@ sealed class ResultJson : Result {
         @SerialName(TEXT) @Optional override val text: String? = null,
         @SerialName(HTML_FORMATTED_TEXT) @Optional override val htmlFormattedText: String? = null
     ) : ResultJson(),
-        TopicResult
+        TopicResult {
+
+        override fun copyWith(webIcon: WebIcon?, url: String?, text: String?, htmlFormattedText: String?) =
+            copy(webIcon = webIcon, url = url, text = text, htmlFormattedText = htmlFormattedText)
+    }
 
     @Serializable
     data class NestedResultJson(
         @SerialName(NAME) @Optional override val name: String? = null,
         @SerialName(TOPICS) @Optional override val topics: List<Result> = emptyList()
     ) : ResultJson(),
-        NestedResult
+        NestedResult {
+
+        override fun copyWith(name: String?, topics: List<Result>) = copy(name = name, topics = topics)
+    }
 }

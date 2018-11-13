@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package com.chrynan.instantanswer
 
 import com.chrynan.instantanswer.api.Developer
@@ -88,6 +90,68 @@ data class MetaJson(
     @SerialName(SOURCE_OPTIONS) @Optional override val sourceOptions: SourceOptions? = null
 ) : Meta {
 
+    override fun copyWith(
+        blockGroup: String?,
+        sourceId: Int?,
+        status: String?,
+        designer: String?,
+        description: String?,
+        liveDate: Long?,
+        isStackExchange: Boolean?,
+        sourceDomain: String?,
+        tab: String?,
+        sourceUrl: String?,
+        unsafe: Int?,
+        perlModule: String?,
+        createdDate: Long?,
+        productionState: String?,
+        exampleQuery: String?,
+        producer: String?,
+        sourceName: String?,
+        devDate: Long?,
+        repo: String?,
+        name: String?,
+        jsCallbackName: String?,
+        id: String?,
+        attribution: String?,
+        devMilestone: String?,
+        signalFrom: String?,
+        topics: List<String>,
+        developers: List<Developer>,
+        maintainer: Maintainer?,
+        sourceOptions: SourceOptions?
+    ): Meta = copy(
+        blockGroup = blockGroup,
+        sourceId = sourceId,
+        status = status,
+        designer = designer,
+        description = description,
+        liveDate = liveDate,
+        isStackExchange = isStackExchange,
+        sourceDomain = sourceDomain,
+        tab = tab,
+        sourceUrl = sourceUrl,
+        unsafe = unsafe,
+        perlModule = perlModule,
+        createdDate = createdDate,
+        productionState = productionState,
+        exampleQuery = exampleQuery,
+        producer = producer,
+        sourceName = sourceName,
+        devDate = devDate,
+        repo = repo,
+        name = name,
+        jsCallbackName = jsCallbackName,
+        id = id,
+        attribution = attribution,
+        devMilestone = devMilestone,
+        signalFrom = signalFrom,
+        topics = topics,
+        developers = developers,
+        maintainer = maintainer,
+        sourceOptions = sourceOptions
+    )
+
     @Serializable
     data class SourceOptionsJson(
         @SerialName(IS_MEDIA_WIKI) @Optional override val isMediaWiki: Boolean? = null,
@@ -104,15 +168,54 @@ data class MetaJson(
         @SerialName(SKIP_END) @Optional override val skipEnd: Boolean? = null,
         @SerialName(SKIP_ICON) @Optional override val skipIcon: Boolean? = null,
         @SerialName(SKIP_IMAGE_NAME) @Optional override val skipImageName: Boolean? = null
-    ) : SourceOptions
+    ) : SourceOptions {
+
+        override fun copyWith(
+            isMediaWiki: Boolean?,
+            language: String?,
+            skipAbstract: Boolean?,
+            isWikipedia: Boolean?,
+            sourceSkip: String?,
+            sourceInfo: String?,
+            directory: String?,
+            minAbstractLength: String?,
+            skipQr: String?,
+            isFanon: Boolean?,
+            skipAbstractParen: Boolean?,
+            skipEnd: Boolean?,
+            skipIcon: Boolean?,
+            skipImageName: Boolean?
+        ) = copy(
+            isMediaWiki = isMediaWiki,
+            language = language,
+            skipAbstract = skipAbstract,
+            isWikipedia = isWikipedia,
+            sourceSkip = sourceSkip,
+            sourceInfo = sourceInfo,
+            directory = directory,
+            minAbstractLength = minAbstractLength,
+            skipQr = skipQr,
+            isFanon = isFanon,
+            skipAbstractParen = skipAbstractParen,
+            skipEnd = skipEnd,
+            skipIcon = skipIcon,
+            skipImageName = skipImageName
+        )
+    }
 
     @Serializable
     data class DeveloperJson(
         @SerialName(URL) @Optional override val url: String? = null,
         @SerialName(TYPE) @Optional override val type: String? = null,
         @SerialName(DeveloperFields.NAME) @Optional override val name: String? = null
-    ) : Developer
+    ) : Developer {
+
+        override fun copyWith(url: String?, type: String?, name: String?) = copy(url = url, type = type, name = name)
+    }
 
     @Serializable
-    data class MaintainerJson(@SerialName(GITHUB) @Optional override val github: String? = null) : Maintainer
+    data class MaintainerJson(@SerialName(GITHUB) @Optional override val github: String? = null) : Maintainer {
+
+        override fun copyWith(github: String?) = copy(github = github)
+    }
 }

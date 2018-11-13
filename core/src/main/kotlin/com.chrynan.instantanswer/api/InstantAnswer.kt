@@ -25,4 +25,30 @@ interface InstantAnswer {
     val abstractSource: String?
     val abstractImageUrl: String?
     val abstractTopic: String?
+
+    fun copyWith(
+        results: List<Result> = this.results,
+        abstract: String? = this.abstract,
+        abstractText: String? = this.abstractText,
+        definitionUrl: String? = this.definitionUrl,
+        imageIsLogo: Boolean? = this.imageIsLogo,
+        entity: String? = this.entity,
+        definitionSource: String? = this.definitionSource,
+        heading: String? = this.heading,
+        infoBox: String? = this.infoBox,
+        image: String? = this.image,
+        abstractUrl: String? = this.abstractUrl,
+        answerType: String? = this.answerType,
+        meta: Meta? = this.meta,
+        relatedTopics: List<Result> = this.relatedTopics,
+        type: String? = this.type,
+        redirectUrl: String? = this.redirectUrl,
+        definition: String? = this.definition,
+        imageWidth: Int? = this.imageWidth,
+        imageHeight: Int? = this.imageHeight,
+        answer: String? = this.answer,
+        abstractSource: String? = this.abstractSource,
+        abstractImageUrl: String? = this.abstractImageUrl,
+        abstractTopic: String? = this.abstractTopic
+    ): InstantAnswer
 }

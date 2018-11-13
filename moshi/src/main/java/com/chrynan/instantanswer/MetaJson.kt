@@ -89,6 +89,68 @@ data class MetaJson(
     @field:Json(name = SOURCE_OPTIONS) override val sourceOptions: SourceOptions? = null
 ) : Meta {
 
+    override fun copyWith(
+        blockGroup: String?,
+        sourceId: Int?,
+        status: String?,
+        designer: String?,
+        description: String?,
+        liveDate: Long?,
+        isStackExchange: Boolean?,
+        sourceDomain: String?,
+        tab: String?,
+        sourceUrl: String?,
+        unsafe: Int?,
+        perlModule: String?,
+        createdDate: Long?,
+        productionState: String?,
+        exampleQuery: String?,
+        producer: String?,
+        sourceName: String?,
+        devDate: Long?,
+        repo: String?,
+        name: String?,
+        jsCallbackName: String?,
+        id: String?,
+        attribution: String?,
+        devMilestone: String?,
+        signalFrom: String?,
+        topics: List<String>,
+        developers: List<Developer>,
+        maintainer: Maintainer?,
+        sourceOptions: SourceOptions?
+    ): Meta = copy(
+        blockGroup = blockGroup,
+        sourceId = sourceId,
+        status = status,
+        designer = designer,
+        description = description,
+        liveDate = liveDate,
+        isStackExchange = isStackExchange,
+        sourceDomain = sourceDomain,
+        tab = tab,
+        sourceUrl = sourceUrl,
+        unsafe = unsafe,
+        perlModule = perlModule,
+        createdDate = createdDate,
+        productionState = productionState,
+        exampleQuery = exampleQuery,
+        producer = producer,
+        sourceName = sourceName,
+        devDate = devDate,
+        repo = repo,
+        name = name,
+        jsCallbackName = jsCallbackName,
+        id = id,
+        attribution = attribution,
+        devMilestone = devMilestone,
+        signalFrom = signalFrom,
+        topics = topics,
+        developers = developers,
+        maintainer = maintainer,
+        sourceOptions = sourceOptions
+    )
+
     @JsonClass(generateAdapter = true)
     data class SourceOptionsJson(
         @field:Json(name = IS_MEDIA_WIKI) override val isMediaWiki: Boolean? = null,
@@ -105,15 +167,54 @@ data class MetaJson(
         @field:Json(name = SKIP_END) override val skipEnd: Boolean? = null,
         @field:Json(name = SKIP_ICON) override val skipIcon: Boolean? = null,
         @field:Json(name = SKIP_IMAGE_NAME) override val skipImageName: Boolean? = null
-    ) : SourceOptions
+    ) : SourceOptions {
+
+        override fun copyWith(
+            isMediaWiki: Boolean?,
+            language: String?,
+            skipAbstract: Boolean?,
+            isWikipedia: Boolean?,
+            sourceSkip: String?,
+            sourceInfo: String?,
+            directory: String?,
+            minAbstractLength: String?,
+            skipQr: String?,
+            isFanon: Boolean?,
+            skipAbstractParen: Boolean?,
+            skipEnd: Boolean?,
+            skipIcon: Boolean?,
+            skipImageName: Boolean?
+        ) = copy(
+            isMediaWiki = isMediaWiki,
+            language = language,
+            skipAbstract = skipAbstract,
+            isWikipedia = isWikipedia,
+            sourceSkip = sourceSkip,
+            sourceInfo = sourceInfo,
+            directory = directory,
+            minAbstractLength = minAbstractLength,
+            skipQr = skipQr,
+            isFanon = isFanon,
+            skipAbstractParen = skipAbstractParen,
+            skipEnd = skipEnd,
+            skipIcon = skipIcon,
+            skipImageName = skipImageName
+        )
+    }
 
     @JsonClass(generateAdapter = true)
     data class DeveloperJson(
         @field:Json(name = URL) override val url: String? = null,
         @field:Json(name = TYPE) override val type: String? = null,
         @field:Json(name = DeveloperFields.NAME) override val name: String? = null
-    ) : Developer
+    ) : Developer {
+
+        override fun copyWith(url: String?, type: String?, name: String?) = copy(url = url, type = type, name = name)
+    }
 
     @JsonClass(generateAdapter = true)
-    data class MaintainerJson(@field:Json(name = GITHUB) override val github: String? = null) : Maintainer
+    data class MaintainerJson(@field:Json(name = GITHUB) override val github: String? = null) : Maintainer {
+
+        override fun copyWith(github: String?) = copy(github = github)
+    }
 }

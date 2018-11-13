@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package com.chrynan.instantanswer
 
 import com.chrynan.instantanswer.api.WebIcon
@@ -12,4 +14,7 @@ data class WebIconJson(
     @SerialName(URL) override val url: String? = null,
     @SerialName(HEIGHT) override val height: Int? = null,
     @SerialName(WIDTH) override val width: Int? = null
-) : WebIcon
+) : WebIcon {
+
+    override fun copyWith(url: String?, height: Int?, width: Int?) = copy(url = url, height = height, width = width)
+}
