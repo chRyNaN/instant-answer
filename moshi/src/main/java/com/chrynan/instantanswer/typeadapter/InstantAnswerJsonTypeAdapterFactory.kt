@@ -22,9 +22,10 @@ class InstantAnswerJsonTypeAdapterFactory : JsonAdapter.Factory {
             val supportedType = type.getSupportedType()
 
             if (supportedType != null) {
-                adapter = moshi.adapter(supportedType)
+                adapter = if (supportedType == ResultJson::class.java) ResultTypeAdapter(moshi)
+                else moshi.adapter(supportedType)
 
-                typeAdapters[type.typeName] = adapter
+                typeAdapters[type.typeName] = adapter!!
             }
         }
 
