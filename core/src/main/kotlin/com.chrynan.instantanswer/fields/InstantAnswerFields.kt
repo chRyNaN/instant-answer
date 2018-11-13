@@ -23,6 +23,6 @@ object InstantAnswerFields {
     const val IMAGE_HEIGHT = "ImageHeight"
     const val ANSWER = "Answer"
     const val ABSTRACT_SOURCE = "AbstractSource"
-    const val ABSTRACT_IMAGE_URL = "AbstractURL"
+    const val ABSTRACT_IMAGE_URL = "AbstractImageURL"
     const val ABSTRACT_TOPIC = "AbstractTopic"
 }
