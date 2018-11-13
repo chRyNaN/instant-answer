@@ -8,8 +8,8 @@ import com.squareup.moshi.ToJson
 class StringAsIntOrNullTypeAdapter {
 
     @ToJson
-    fun toJson(value: Int?): String? = value?.toString()
+    fun toJson(value: Int?) = value?.toString()
 
     @FromJson
-    fun fromJson(json: String?): Int? = json?.toIntOrNull()
+    fun fromJson(json: String?) = json?.toIntOrNull()
 }
