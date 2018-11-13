@@ -36,7 +36,7 @@ class ResultTypeAdapter(private val moshi: Moshi) : JsonAdapter<Result>() {
 
         // Nested Result Fields
         var name: String? = null
-        var topics: List<TopicResult> = emptyList()
+        var topicsString: String? = null
 
         // Topic Result Fields
         var webIcon: WebIcon? = null
@@ -48,8 +48,7 @@ class ResultTypeAdapter(private val moshi: Moshi) : JsonAdapter<Result>() {
         while (reader.hasNext()) {
             when (reader.selectName(options)) {
                 0 -> name = nullableStringAdapter.fromJson(reader)
-                1 -> topics = listOfResultAdapter.fromJson(reader) ?:
-                        throw JsonDataException("Non-null value 'topics' was null at ${reader.path}")
+                1 -> topicsString = nullableStringAdapter.fromJson(reader)
                 2 -> webIcon = nullableWebIconAdapter.fromJson(reader)
                 3 -> url = nullableStringAdapter.fromJson(reader)
                 4 -> text = nullableStringAdapter.fromJson(reader)
@@ -63,11 +62,15 @@ class ResultTypeAdapter(private val moshi: Moshi) : JsonAdapter<Result>() {
         }
         reader.endObject()
 
-        if (name != null && topics.isNotEmpty()) {
-            return ResultJson.NestedResultJson(
-                name = name,
-                topics = topics
-            )
+        if (name != null && !topicsString.isNullOrBlank()) {
+            val topics: List<TopicResult> = listOfResultAdapter.fromJson(topicsString) ?: emptyList()
+
+            if (topics.isNotEmpty()) {
+                return ResultJson.NestedResultJson(
+                    name = name,
+                    topics = topics
+                )
+            }
         }
 
         return ResultJson.TopicResultJson(
