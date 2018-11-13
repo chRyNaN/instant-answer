@@ -33,10 +33,10 @@ sealed class ResultJson : Result {
     @JsonClass(generateAdapter = true)
     data class NestedResultJson(
         @field:Json(name = NAME) override val name: String? = null,
-        @field:Json(name = TOPICS) override val topics: List<Result> = emptyList()
+        @field:Json(name = TOPICS) override val topics: List<TopicResult> = emptyList()
     ) : ResultJson(),
         NestedResult {
 
-        override fun copyWith(name: String?, topics: List<Result>) = copy(name = name, topics = topics)
+        override fun copyWith(name: String?, topics: List<TopicResult>) = copy(name = name, topics = topics)
     }
 }

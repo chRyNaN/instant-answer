@@ -35,10 +35,10 @@ sealed class ResultJson : Result {
     @Serializable
     data class NestedResultJson(
         @SerialName(NAME) @Optional override val name: String? = null,
-        @SerialName(TOPICS) @Optional override val topics: List<Result> = emptyList()
+        @SerialName(TOPICS) @Optional override val topics: List<TopicResult> = emptyList()
     ) : ResultJson(),
         NestedResult {
 
-        override fun copyWith(name: String?, topics: List<Result>) = copy(name = name, topics = topics)
+        override fun copyWith(name: String?, topics: List<TopicResult>) = copy(name = name, topics = topics)
     }
 }

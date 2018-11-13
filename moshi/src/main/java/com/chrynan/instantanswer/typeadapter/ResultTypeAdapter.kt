@@ -21,8 +21,8 @@ class ResultTypeAdapter(private val moshi: Moshi) : JsonAdapter<Result>() {
         moshi.adapter<WebIcon?>(WebIcon::class.java, emptySet(), "webIcon")
     }
     private val listOfResultAdapter by lazy {
-        moshi.adapter<List<Result>>(
-            Types.newParameterizedType(List::class.java, Result::class.java),
+        moshi.adapter<List<TopicResult>>(
+            Types.newParameterizedType(List::class.java, ResultJson.TopicResultJson::class.java),
             emptySet(),
             "topics"
         )
@@ -36,7 +36,7 @@ class ResultTypeAdapter(private val moshi: Moshi) : JsonAdapter<Result>() {
 
         // Nested Result Fields
         var name: String? = null
-        var topics: List<Result> = emptyList()
+        var topics: List<TopicResult> = emptyList()
 
         // Topic Result Fields
         var webIcon: WebIcon? = null
