@@ -1,7 +1,8 @@
 @file:Suppress("unused")
 
-package com.chrynan.instantanswer
+package com.chrynan.instantanswer.json
 
+import com.chrynan.instantanswer.IntAsBooleanOrNull
 import com.chrynan.instantanswer.api.Developer
 import com.chrynan.instantanswer.api.Maintainer
 import com.chrynan.instantanswer.api.Meta
@@ -64,7 +65,7 @@ data class MetaJson(
     @field:Json(name = DESIGNER) override val designer: String? = null,
     @field:Json(name = DESCRIPTION) override val description: String? = null,
     @field:Json(name = LIVE_DATE) override val liveDate: Long? = null,
-    @field:Json(name = IS_STACK_EXCHANGE) override val isStackExchange: Boolean? = null,
+    @field:Json(name = IS_STACK_EXCHANGE) @IntAsBooleanOrNull override val isStackExchange: Boolean? = null,
     @field:Json(name = SOURCE_DOMAIN) override val sourceDomain: String? = null,
     @field:Json(name = TAB) override val tab: String? = null,
     @field:Json(name = SOURCE_URL) override val sourceUrl: String? = null,
@@ -79,7 +80,7 @@ data class MetaJson(
     @field:Json(name = REPO) override val repo: String? = null,
     @field:Json(name = MetaFields.NAME) override val name: String? = null,
     @field:Json(name = JS_CALLBACK_NAME) override val jsCallbackName: String? = null,
-    @field:Json(name = ID) override val id: String? = null,
+    @field:Json(name = ID) override val id: String? =  null,
     @field:Json(name = ATTRIBUTION) override val attribution: String? = null,
     @field:Json(name = DEV_MILESTONE) override val devMilestone: String? = null,
     @field:Json(name = SIGNAL_FROM) override val signalFrom: String? = null,

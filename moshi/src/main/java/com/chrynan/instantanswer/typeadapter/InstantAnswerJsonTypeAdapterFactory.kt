@@ -2,10 +2,10 @@
 
 package com.chrynan.instantanswer.typeadapter
 
-import com.chrynan.instantanswer.InstantAnswerJson
-import com.chrynan.instantanswer.MetaJson
-import com.chrynan.instantanswer.ResultJson
-import com.chrynan.instantanswer.WebIconJson
+import com.chrynan.instantanswer.json.InstantAnswerJson
+import com.chrynan.instantanswer.json.MetaJson
+import com.chrynan.instantanswer.json.ResultJson
+import com.chrynan.instantanswer.json.WebIconJson
 import com.chrynan.instantanswer.api.*
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.Moshi

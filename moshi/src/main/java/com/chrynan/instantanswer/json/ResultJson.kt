@@ -1,6 +1,6 @@
 @file:Suppress("unused")
 
-package com.chrynan.instantanswer
+package com.chrynan.instantanswer.json
 
 import com.chrynan.instantanswer.api.NestedResult
 import com.chrynan.instantanswer.api.Result

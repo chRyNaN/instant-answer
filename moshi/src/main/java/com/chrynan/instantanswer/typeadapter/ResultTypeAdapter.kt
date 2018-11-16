@@ -2,7 +2,7 @@
 
 package com.chrynan.instantanswer.typeadapter
 
-import com.chrynan.instantanswer.ResultJson
+import com.chrynan.instantanswer.json.ResultJson
 import com.chrynan.instantanswer.api.NestedResult
 import com.chrynan.instantanswer.api.Result
 import com.chrynan.instantanswer.api.TopicResult
@@ -28,8 +28,10 @@ class ResultTypeAdapter(private val moshi: Moshi) : JsonAdapter<Result>() {
         )
     }
 
-    private val topicResultAdapter: JsonAdapter<ResultJson.TopicResultJson> by lazy { moshi.adapter(ResultJson.TopicResultJson::class.java) }
-    private val nestedResultAdapter: JsonAdapter<ResultJson.NestedResultJson> by lazy { moshi.adapter(ResultJson.NestedResultJson::class.java) }
+    private val topicResultAdapter: JsonAdapter<ResultJson.TopicResultJson> by lazy { moshi.adapter(
+        ResultJson.TopicResultJson::class.java) }
+    private val nestedResultAdapter: JsonAdapter<ResultJson.NestedResultJson> by lazy { moshi.adapter(
+        ResultJson.NestedResultJson::class.java) }
 
     override fun fromJson(reader: JsonReader): Result? {
         // Unfortunately, it looks like we have to manually parse the JSON since this is a Kotlin sealed class

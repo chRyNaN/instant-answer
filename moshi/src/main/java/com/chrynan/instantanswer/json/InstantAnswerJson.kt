@@ -1,7 +1,8 @@
 @file:Suppress("unused")
 
-package com.chrynan.instantanswer
+package com.chrynan.instantanswer.json
 
+import com.chrynan.instantanswer.IntAsBooleanOrNull
 import com.chrynan.instantanswer.api.InstantAnswer
 import com.chrynan.instantanswer.api.Meta
 import com.chrynan.instantanswer.api.Result
@@ -37,7 +38,7 @@ data class InstantAnswerJson(
     @field:Json(name = ABSTRACT) override val abstract: String? = null,
     @field:Json(name = ABSTRACT_TEXT) override val abstractText: String? = null,
     @field:Json(name = DEFINITION_URL) override val definitionUrl: String? = null,
-    @field:Json(name = IMAGE_IS_LOGO) override val imageIsLogo: Boolean? = null,
+    @field:Json(name = IMAGE_IS_LOGO) @IntAsBooleanOrNull override val imageIsLogo: Boolean? = null,
     @field:Json(name = ENTITY) override val entity: String? = null,
     @field:Json(name = DEFINITION_SOURCE) override val definitionSource: String? = null,
     @field:Json(name = HEADING) override val heading: String? = null,
